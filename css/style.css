@@ -1,0 +1,147 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(rgb(39, 75, 89), black);
+}
+
+.btnPlayQuizz {
+  font-size: 48px;
+  height: 100px;
+  width: 300px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.122);
+  border: none;
+  font-weight: bold;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+.btnPlayQuizz:hover {
+  cursor: pointer;
+}
+
+.innerContainer {
+  height: 700px;
+  width: 70%;
+  background-color: rgba(255, 255, 255, 0.061);
+  border-radius: 10px;
+  padding: 30px;
+  font-family: sans-serif;
+  color: white;
+  /* visibility: hidden; */
+  position: absolute;
+  z-index: -10;
+}
+
+
+.points {
+  display: flex;
+  justify-content: end;
+}
+
+.timer {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 120px;
+}
+
+.question {
+  text-align: center;
+  font-size: 18px;
+}
+
+.options {
+  height: 200px;
+  /* background-color: orange; */
+  padding: 20px 0px;
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: 40px 40px;
+  grid-gap:50px;
+  justify-content: center;
+  align-content: center;
+}
+
+.item {
+  height: 40px;
+  width: 300px;
+  border-radius: 3px;
+  background: rgb(40, 26, 169);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: white;
+}
+
+.correctAnswer {
+  background-color: rgb(7, 144, 7);
+}
+.item:hover {
+  cursor: pointer;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.currentIndex {
+  font-size: 20px;
+  width: 50%;
+}
+
+.btnDiv {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 20px;
+}
+.endBtn {
+  width: 100px;
+  height: 35px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.endBtn:hover {
+ cursor: pointer;
+}
+.nextBtn {
+  width: 100px;
+  height: 35px;
+  background-color: rgb(49, 14, 130);
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.nextBtn:hover {
+  cursor: pointer;
+}
+
+.playAgain {
+  width: 100px;
+  height: 35px;
+  background-color: rgb(49, 14, 130);
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.playAgain:hover {
+ cursor: pointer;
+}
