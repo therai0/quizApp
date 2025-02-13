@@ -56,7 +56,7 @@ async function fetchData() {
 
 document.addEventListener("DOMContentLoaded", fetchData);
 
-// function to update the question
+//function to load the first question
 function loadFirstQuestion() {
   // checking there is error or not
   if (error) {
@@ -120,15 +120,41 @@ function loadFirstQuestion() {
   numberOfQuestion.innerHTML = `${listOfQuestion.questions.length}`;
 }
 
-// loading the first question
 playBtn.addEventListener("click", loadFirstQuestion);
+
+function endQuiz() {
+  // clearing the all the element of the of inner container
+  innerContainer.innerHTML = "";
+  let div_01 = document.createElement("div");
+  let div_02 = document.createElement("div");
+  let playAgain = document.createElement("button");
+  playAgain.innerHTML = "Play Again";
+  playAgain.classList.add("playAgain");
+  div_01.innerHTML = `Question: ${totalNumberofQuestion}`;
+  div_02.innerHTML = `Correct answer: ${correctAns}`;
+
+  innerContainer.style.display = "flex";
+  innerContainer.style.justifyContent = "center";
+  innerContainer.style.alignItems = "center";
+  innerContainer.style.flexDirection = "column";
+  innerContainer.style.gap = "20px";
+  innerContainer.appendChild(div_01);
+  innerContainer.appendChild(div_02);
+  innerContainer.appendChild(playAgain);
+
+  playAgain.addEventListener("click", () => {
+    location.reload(); // reload the page
+  });
+}
 
 function updateQuestion() {
   // checking that current index reach the limitor not
   if (currentIndex == listOfQuestion.questions.length) {
-    nextBtm.disabled = true;
-    nextBtm.style.opacity = 0.5;
+    endQuiz();
   }
+
+  // updating the value of total number of question
+  totalNumberofQuestion++;
 
   startQuestionTimer(10, () => {
     options.innerHTML = "";
@@ -177,30 +203,5 @@ function updateQuestion() {
 
 // event which update the question
 nextBtm.addEventListener("click", updateQuestion);
-
-function endQuiz() {
-  // clearing the all the element of the of inner container
-  innerContainer.innerHTML = "";
-  let div_01 = document.createElement("div");
-  let div_02 = document.createElement("div");
-  let playAgain = document.createElement("button");
-  playAgain.innerHTML = "Play Again";
-  playAgain.classList.add("playAgain");
-  div_01.innerHTML = `Question: ${totalNumberofQuestion}`;
-  div_02.innerHTML = `Correct answer: ${correctAns}`;
-
-  innerContainer.style.display = "flex";
-  innerContainer.style.justifyContent = "center";
-  innerContainer.style.alignItems = "center";
-  innerContainer.style.flexDirection = "column";
-  innerContainer.style.gap = "20px";
-  innerContainer.appendChild(div_01);
-  innerContainer.appendChild(div_02);
-  innerContainer.appendChild(playAgain);
-
-  playAgain.addEventListener("click", () => {
-    location.reload(); // reload the page
-  });
-}
 
 endBtn.addEventListener("click", endQuiz);
